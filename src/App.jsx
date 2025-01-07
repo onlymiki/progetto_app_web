@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const CocktailApp = () => {
+    const [cocktails, setCocktails] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    useEffect(() => {
+        fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+            .then(response => response.json())
+            .then(data => {
+                setCocktails(data.drinks);
+                setLoading(false);
+            })
+            .catch(error => console.error('Errore nell\'API:', error));
+    }, []);
 
-export default App
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <div>
+            <h1>Cocktail</h1>
+            <ul>
+                {cocktails && cocktails.map(cocktail => (
+                    <li key={cocktail.idDrink}>
+                        <h2>{cocktail.strDrink}</h2>
+                        <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+                        <p>{cocktail.strInstructions}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default CocktailApp;
