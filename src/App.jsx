@@ -2,27 +2,41 @@ import React, { useState, useEffect } from 'react';
 
 const CocktailApp = () => {
     const [cocktails, setCocktails] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
+    const [letter, setLetter] = useState('a');
+
+    const fetchCocktailsByLetter = async (currentLetter) => {
+        setLoading(true);
+        try {
+            const response = await fetch(
+                `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${currentLetter}`
+            );
+            const data = await response.json();
+            if (data.drinks) {
+                setCocktails((prevCocktails) => [...prevCocktails, ...data.drinks]);
+            }
+        } catch (error) {
+            console.error("Errore nell'API:", error);
+        }
+        setLoading(false);
+    };
 
     useEffect(() => {
-        fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
-            .then(response => response.json())
-            .then(data => {
-                setCocktails(data.drinks);
-                setLoading(false);
-            })
-            .catch(error => console.error('Errore nell\'API:', error));
-    }, []);
+        fetchCocktailsByLetter(letter);
+    }, [letter]);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    const loadMoreCocktails = () => {
+        if (letter < 'z') {
+            const nextLetter = String.fromCharCode(letter.charCodeAt(0) + 1);
+            setLetter(nextLetter);
+        }
+    };
 
     return (
         <div>
             <h1>Cocktail</h1>
             <ul>
-                {cocktails && cocktails.map(cocktail => (
+                {cocktails.map((cocktail) => (
                     <li key={cocktail.idDrink}>
                         <h2>{cocktail.strDrink}</h2>
                         <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
@@ -30,6 +44,13 @@ const CocktailApp = () => {
                     </li>
                 ))}
             </ul>
+            {loading ? (
+                <p>Loading...</p>
+            ) : (
+                <button onClick={loadMoreCocktails} disabled={letter === 'z'}>
+                    Carica altri cocktail
+                </button>
+            )}
         </div>
     );
 };
