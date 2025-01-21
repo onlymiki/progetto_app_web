@@ -1,0 +1,9 @@
+footer{
+    background: rgb(176,36,10);
+    background: linear-gradient(180deg, rgba(176,36,10,1) 0%, rgba(50,1,2,1) 50%);
+}
+
+.whiteText{
+    color: #F8EDE2;
+    font-family: Tint Neon, sans-serif;
+}

@@ -1,4 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
+import MainTemplate from "../../components/MainTemplate.jsx";
+
+const App = () => {
+    return(
+        <>
+            <MainTemplate/>
+        </>
+    );
+}
+
+export default App;
+
+
+/*import React, { useState, useEffect } from 'react';
 
 const CocktailApp = () => {
     const [cocktails, setCocktails] = useState([]);
@@ -55,4 +69,5 @@ const CocktailApp = () => {
     );
 };
 
-export default CocktailApp;
+export default CocktailApp;*/
+
