@@ -3,7 +3,18 @@ footer{
     background: linear-gradient(180deg, rgba(176,36,10,1) 0%, rgba(50,1,2,1) 50%);
 }
 
+.social{
+    border-left: 1px solid #F8EDE2;
+}
+
 .whiteText{
     color: #F8EDE2;
     font-family: Tint Neon, sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .social {
+        border-left: none;
+    }
 }
