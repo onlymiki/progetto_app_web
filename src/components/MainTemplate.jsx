@@ -9,7 +9,8 @@ const MainTemplate = (props) => {
         footerFbLink,
         footerFbName,
         footerXLink,
-        footerXName
+        footerXName,
+        navItems
     } = props;
     return(
         <>
@@ -22,6 +23,7 @@ const MainTemplate = (props) => {
                 fbName={footerFbName}
                 xLink={footerXLink}
                 xName={footerXName}
+                navItems ={navItems}
             />
         </>
     );

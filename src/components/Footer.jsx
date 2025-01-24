@@ -4,20 +4,36 @@ import facebook from "../assets/images/facebook.svg";
 import x from "../assets/images/x.svg";
 import disco from "../assets/images/disco.png";
 import unimib from "../assets/images/unimib.png";
+import {NavLink} from 'react-router-dom';
 
 const Footer = (props) => {
     const {
         igLink, igName,
         fbLink, fbName,
-        xLink, xName
+        xLink, xName,
+        navItems
     } = props;
+
+    const itemList = navItems.map((item) => (
+        <li key={item.url} className="nav-item">
+            <NavLink
+                to={item.url}
+                className={({ isActive }) => (isActive ? style.active : '')}
+            >
+                {item.text}
+            </NavLink>
+        </li>
+    ));
+
 
     return(
         <footer>
             <section className="container-fluid">
                 <div className="row">
                     <div className="col-12 col-sm-4 my-3">
-                        Navigazione
+                        <ul>
+                            {itemList}
+                        </ul>
                     </div>
 
                     <div
