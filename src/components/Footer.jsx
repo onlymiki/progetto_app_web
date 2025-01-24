@@ -6,7 +6,11 @@ import disco from "../assets/images/disco.png";
 import unimib from "../assets/images/unimib.png";
 
 const Footer = (props) => {
-    const {ig_link, fb_link, x_link} = props;
+    const {
+        igLink, igName,
+        fbLink, fbName,
+        xLink, xName
+    } = props;
 
     return(
         <footer>
@@ -23,7 +27,9 @@ const Footer = (props) => {
                                 <img src={instagram} alt="Instagram" className="float-end img-fluid p-2"/>
                             </div>
                             <div className="col-7 col-sm-10">
-                                <a href={ig_link} className={`m-0 ${style.whiteText}`}>account_instagram</a>
+                                <a href={igLink} className={`m-0 ${style.whiteText}`}>
+                                    <h5 className="m-0">{igName}</h5>
+                                </a>
                             </div>
                         </div>
                         <div className="align-items-center d-flex row">
@@ -31,7 +37,9 @@ const Footer = (props) => {
                                 <img src={facebook} alt="Facebook" className="float-end img-fluid p-2"/>
                             </div>
                             <div className="col-7 col-sm-10">
-                                <h5 className={`m-0 ${style.whiteText}`}>account_facebook</h5>
+                                <a href={fbLink} className={`m-0 ${style.whiteText}`}>
+                                    <h5 className="m-0">{fbName}</h5>
+                                </a>
                             </div>
                         </div>
                         <div className="align-items-center d-flex row">
@@ -39,7 +47,9 @@ const Footer = (props) => {
                                 <img src={x} alt="X" className="float-end img-fluid p-2"/>
                             </div>
                             <div className="col-7 col-sm-10">
-                                <h5 className={`m-0 ${style.whiteText}`}>account_x</h5>
+                                <a href={xLink} className={`m-0 ${style.whiteText}`}>
+                                    <h5 className="m-0">{xName}</h5>
+                                </a>
                             </div>
                         </div>
                     </div>

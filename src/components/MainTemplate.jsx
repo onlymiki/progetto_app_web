@@ -1,11 +1,28 @@
 import Footer from "./Footer.jsx";
 import Header from "./Header.jsx";
 
-const MainTemplate = () => {
+const MainTemplate = (props) => {
+    const {
+        children,
+        footerIgLink,
+        footerIgName,
+        footerFbLink,
+        footerFbName,
+        footerXLink,
+        footerXName
+    } = props;
     return(
         <>
             <Header/>
-            <Footer/>
+            {children}
+            <Footer
+                igLink={footerIgLink}
+                igName={footerIgName}
+                fbLink={footerFbLink}
+                fbName={footerFbName}
+                xLink={footerXLink}
+                xName={footerXName}
+            />
         </>
     );
 }

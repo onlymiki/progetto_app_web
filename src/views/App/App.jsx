@@ -1,10 +1,20 @@
 import {useState, useEffect} from 'react';
 import MainTemplate from "../../components/MainTemplate.jsx";
+import Home from "../../views/Home/Home.jsx"
 
 const App = () => {
     return(
         <>
-            <MainTemplate/>
+            <MainTemplate
+                footerIgLink = "https://www.instagram.com/unimib/"
+                footerIgName = "Ig Unimib"
+                footerFbLink = "https://www.facebook.com/bicocca/?locale=it_IT"
+                footerFbName = "Fb Unimib"
+                footerXLink = "https://x.com/unimib?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                footerXName = "X Unimib"
+            >
+                <Home />
+            </MainTemplate>
         </>
     );
 }

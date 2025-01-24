@@ -9,7 +9,8 @@ footer{
 
 .whiteText{
     color: #F8EDE2;
-    font-family: Tint Neon, sans-serif;
+    font-family: Tilt Neon, sans-serif;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 768px) {
