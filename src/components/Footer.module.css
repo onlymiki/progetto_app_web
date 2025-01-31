@@ -1,3 +1,10 @@
+.active{
+    color: #F29F58;
+    font-family: Warnes, serif;
+    text-decoration: none;
+    font-size: 28px;
+}
+
 footer{
     background: rgb(176,36,10);
     background: linear-gradient(180deg, rgba(176,36,10,1) 0%, rgba(50,1,2,1) 50%);
@@ -5,6 +12,13 @@ footer{
 
 .social{
     border-left: 1px solid #F8EDE2;
+}
+
+.navLink{
+    color: #F8EDE2;
+    font-family: Warnes, serif;
+    text-decoration: none;
+    font-size: 28px;
 }
 
 .whiteText{

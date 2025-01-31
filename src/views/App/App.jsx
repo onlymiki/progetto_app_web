@@ -27,7 +27,7 @@ const App = () => {
                     navItems = {nav}
                 >
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                        <Route path="/" element={<Home />}/>
                         <Route path="/drinks" element={<Drinks />} />
                         <Route path="/topTen" element={<TopTen />} />
                         <Route path="/drinkDetails" element={<DrinkDetails />} />

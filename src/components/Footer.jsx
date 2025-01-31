@@ -18,7 +18,7 @@ const Footer = (props) => {
         <li key={item.url} className="nav-item">
             <NavLink
                 to={item.url}
-                className={({ isActive }) => (isActive ? style.active : '')}
+                className={({ isActive }) => (isActive ? style.active : style.navLink)}
             >
                 {item.text}
             </NavLink>
@@ -30,39 +30,39 @@ const Footer = (props) => {
         <footer>
             <section className="container-fluid">
                 <div className="row">
-                    <div className="col-12 col-sm-4 my-3">
-                        <ul>
+                    <div className="align-items-center col-12 col-md-4 d-flex my-3">
+                        <ul className="list-unstyled ms-md-5 text-center text-md-start">
                             {itemList}
                         </ul>
                     </div>
 
                     <div
-                        className={`col-12 col-sm-4 d-flex flex-column justify-content-center justify-content-sm-start my-3 ${style.social}`}>
+                        className={`align-items-center col-12 col-md-4 d-flex flex-column justify-content-center my-3 ${style.social}`}>
                         <div className="align-items-center d-flex row">
-                            <div className="col-5 col-sm-2">
-                                <img src={instagram} alt="Instagram" className="float-end img-fluid p-2"/>
+                            <div className="col-5 col-md-2">
+                                <img src={instagram} alt="Instagram" className="float-end"/>
                             </div>
-                            <div className="col-7 col-sm-10">
+                            <div className="col-7 col-md-10">
                                 <a href={igLink} className={`m-0 ${style.whiteText}`}>
                                     <h5 className="m-0">{igName}</h5>
                                 </a>
                             </div>
                         </div>
                         <div className="align-items-center d-flex row">
-                            <div className="col-5 col-sm-2">
-                                <img src={facebook} alt="Facebook" className="float-end img-fluid p-2"/>
+                            <div className="col-5 col-md-2">
+                                <img src={facebook} alt="Facebook" className="float-end"/>
                             </div>
-                            <div className="col-7 col-sm-10">
+                            <div className="col-7 col-md-10">
                                 <a href={fbLink} className={`m-0 ${style.whiteText}`}>
                                     <h5 className="m-0">{fbName}</h5>
                                 </a>
                             </div>
                         </div>
                         <div className="align-items-center d-flex row">
-                            <div className="col-5 col-sm-2">
-                                <img src={x} alt="X" className="float-end img-fluid p-2"/>
+                            <div className="col-5 col-md-2">
+                                <img src={x} alt="X" className="float-end"/>
                             </div>
-                            <div className="col-7 col-sm-10">
+                            <div className="col-7 col-md-10">
                                 <a href={xLink} className={`m-0 ${style.whiteText}`}>
                                     <h5 className="m-0">{xName}</h5>
                                 </a>
@@ -71,7 +71,7 @@ const Footer = (props) => {
                     </div>
 
                     <div
-                        className="align-items-center align-items-sm-start col-12 col-sm-4 d-flex flex-column flex-sm-row justify-content-center justify-content-sm-start my-3">
+                        className="align-items-center align-items-md-start col-12 col-md-4 d-flex flex-column flex-md-row justify-content-center justify-content-md-start my-3">
                         <a href="https://www.disco.unimib.it/it" target="_blank">
                             <img src={disco} alt="disco" className="img-fluid p-3"/>
                         </a>
