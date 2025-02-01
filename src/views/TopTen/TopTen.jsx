@@ -3,7 +3,7 @@
 const TopTen = () => {
     return(
         <>
-            <p>Drink</p>
+            <p>Top Ten Drink</p>
         </>
     );
 }
