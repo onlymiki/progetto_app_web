@@ -1,10 +1,11 @@
-import {useState, useEffect} from 'react';
+//import {useState, useEffect} from 'react';
 import MainTemplate from "../../components/MainTemplate.jsx";
 import Home from "../../views/Home/Home.jsx"
 import Drinks from "../../views/Drinks/Drinks.jsx"
 import TopTen from "../../views/TopTen/TopTen.jsx"
 import DrinkDetails from "../../views/DrinkDetails/DrinkDetails.jsx"
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import logo from "../../assets/images/logo.svg"
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
                     footerXLink = "https://x.com/unimib?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
                     footerXName = "X Unimib"
                     navItems = {nav}
+                    logo = {logo}
                 >
                     <Routes>
                         <Route path="/" element={<Home />}/>

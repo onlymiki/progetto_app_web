@@ -1,56 +1,42 @@
-import React, { useState } from 'react';
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    NavbarText,
-} from 'reactstrap';
+import React, { useState } from "react";
+import { Collapse, Nav, Navbar, NavbarToggler, NavItem } from "reactstrap";
+import { NavLink as RouterLink } from "react-router-dom";
+import style from "./Header.module.css";
+import { FaBars, FaTimes } from 'react-icons/fa';  // Importa le icone
 
-function Header(args) {
+
+const Header = ({ logo, navItems }) => {
     const [isOpen, setIsOpen] = useState(false);
-
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <div>
-            <Navbar {...args}>
-                <NavbarBrand href="/">reactstrap</NavbarBrand>
-                <NavbarToggler onClick={toggle} />
+        <Navbar expand="md" className={` ${style.navbar}`}>
+            <div className="container d-flex justify-content-between">
+                <RouterLink to="/" className="align-items-center d-flex my-4">
+                    <img src={logo} alt="Logo" />
+                </RouterLink>
+
                 <Collapse isOpen={isOpen} navbar>
-                    <Nav className="me-auto" navbar>
-                        <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">
-                                GitHub
-                            </NavLink>
-                        </NavItem>
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                Options
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                                <DropdownItem>Option 1</DropdownItem>
-                                <DropdownItem>Option 2</DropdownItem>
-                                <DropdownItem divider />
-                                <DropdownItem>Reset</DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown>
+                    <Nav className="mr-auto" navbar>
+                        {navItems.map(({ url, text, exact }) => (
+                            <NavItem key={url} className={`mx-3 ${style.navItem}`}>
+                                <RouterLink
+                                    to={url}
+                                    exact={exact}
+                                    className={({ isActive }) => (isActive ? style.active : style.navItem)} >
+                                    {text}
+                                </RouterLink>
+                            </NavItem>
+                        ))}
                     </Nav>
-                    <NavbarText>Simple Text</NavbarText>
                 </Collapse>
-            </Navbar>
-        </div>
+
+                <NavbarToggler onClick={toggle} className="border-0">
+                    {isOpen ? <FaTimes size={30} color="#F8EDE2" /> : <FaBars size={30} color="#F8EDE2"/>}
+                </NavbarToggler>
+            </div>
+        </Navbar>
     );
-}
+};
 
 export default Header;
