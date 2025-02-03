@@ -10,8 +10,8 @@ const Home= () => {
             <img src={bar} className="img-fluid"/>
             <section className="align-items-center d-flex flex-column flex-sm-row gap-5
             justify-content-sm-evenly my-5 pb-4">
-                <CardHome image={cheers} text="Tutti i drink" />
-                <CardHome image={trophy} text="Top ten"/>
+                <CardHome image={cheers} text="Tutti i drink" link="/drinks" />
+                <CardHome image={trophy} text="Top ten" link="/topten"/>
             </section>
         </>
     );

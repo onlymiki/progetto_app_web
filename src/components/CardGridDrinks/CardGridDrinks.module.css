@@ -1,0 +1,29 @@
+.image{
+    width: 150px;
+    height: 150px;
+}
+
+.ingredients{
+    color: #F8EDE2;
+    font-family: "Tilt Neon", sans-serif;
+    font-size: 16px;
+}
+
+.title{
+    color: #F29F58;
+    font-family: "Warnes", serif;
+    font-size: 16px;
+    display: -webkit-box;        /* Usa il modello di layout a "box" */
+    -webkit-line-clamp: 2;       /* Limita il testo a 2 righe */
+    -webkit-box-orient: vertical; /* Imposta l'orientamento delle righe su verticale */
+    overflow: hidden;            /* Nasconde il testo che esce dalla box */
+    text-overflow: ellipsis;     /* Mostra "..." alla fine se il testo è troncato */
+    line-height: 1.5;            /* Imposta l'altezza della linea per il corretto calcolo delle righe */
+    height: 3rem;                /* Imposta un'altezza fissa per il contenitore (2 righe di testo) */
+}
+
+.whiteCard{
+    width: 250px;
+    height: 350px;
+    border: 3px solid #F8EDE2;
+}
