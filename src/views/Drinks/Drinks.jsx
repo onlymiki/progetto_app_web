@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import CardGridDrinks from "../../components/CardGridDrinks/CardGridDrinks.jsx";
 import bar_scuro from "../../assets/images/bar_scuro.svg"
 import RedButton from "../../components/RedButton/RedButton.jsx"
+import CardTableDrinks from "../../components/CardTableDrinks/CardTableDrinks.jsx";
 
 const Drinks = () => {
     const [cocktails, setCocktails] = useState([]);  // Cambio drinks con cocktails per coerenza
@@ -44,7 +45,8 @@ const Drinks = () => {
         <>
             <img src={bar_scuro} className="img-fluid mb-5" />
 
-            <div className= {`align-items-center d-flex flex-column flex-sm-row justify-content-center mb-5 ${style.button}`}>
+            {/* Pulsanti Grid e Table */}
+            <div className={`align-items-center d-flex flex-column flex-sm-row justify-content-center mb-5 ${style.button}`}>
                 <RedButton
                     name="Grid"
                     isActive={activeButton === "Grid"}
@@ -57,15 +59,30 @@ const Drinks = () => {
                 />
             </div>
 
-            <div className={`w-100`}>
-                <div className={`d-flex justify-content-center gy-4 mx-auto row ${style.cont}`}>
-                    {cocktails.map((drink) => (
-                        <div key={drink.idDrink} className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
-                            <CardGridDrinks drink={drink}/>
-                        </div>
-                    ))}
-                </div>
+            {/* Mostra il componente corretto in base a activeButton */}
+            <div className="w-100">
+                {activeButton === "Grid" ? (
+                    <div className={`d-flex justify-content-center gy-4 mx-auto row ${style.cont}`}>
+                        {cocktails.map((drink) => (
+                            <div key={drink.idDrink} className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
+                                <CardGridDrinks drink={drink} />
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <div className={`d-flex justify-content-center gy-4 mx-auto row ${style.cont}`}>
+                        {cocktails.map((drink) => (
+                            <div key={drink.idDrink} className="col-12 col-sm-12 d-flex justify-content-center">
+                                <CardTableDrinks drink={drink} />
+                            </div>
+                        ))}
+                    </div>
+                )}
+
+                {/* Messaggio di caricamento */}
                 {loading && <div className="text-center">Caricamento...</div>}
+
+                {/* Bottone per caricare più cocktail */}
                 {!loading && cocktails.length > 0 && (
                     <div className="d-flex justify-content-center mt-4">
                         <button
@@ -79,6 +96,7 @@ const Drinks = () => {
                 )}
             </div>
         </>
+
 
     );
 };
