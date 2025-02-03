@@ -3,3 +3,12 @@
   width: 100%;
 }
 
+.button{
+    gap: 10px;
+}
+
+.title{
+    color: #F8EDE2;
+    font-family: Warnes, serif;
+}
+

@@ -19,7 +19,7 @@ const CardGridDrinks = ({ drink }) => {
                 className={`img-fluid rounded-circle ${style.image}`}
             />
             <h2 className={`align-items-center d-flex m-0 px-1 text-center ${style.title}`}>{drink.strDrink}</h2>
-            <ul className={`text-center ${style.ingredients}`}>
+            <ul className={`${style.ingredients}`}>
                 {displayedIngredients.map((ingredient, index) => (
                     <li key={index}>{ingredient}</li>
                 ))}
