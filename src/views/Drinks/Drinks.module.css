@@ -1,6 +1,11 @@
+.contGrid{
+    max-width: 750px;
+    width: 100%;
+}
+
 .cont{
-    max-width: 780px;
-  width: 100%;
+    max-width: 2000px;
+    width: 100%;
 }
 
 .button{

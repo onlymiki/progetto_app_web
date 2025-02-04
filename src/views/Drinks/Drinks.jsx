@@ -62,7 +62,7 @@ const Drinks = () => {
             {/* Mostra il componente corretto in base a activeButton */}
             <div className="w-100">
                 {activeButton === "Grid" ? (
-                    <div className={`d-flex justify-content-center gy-4 mx-auto row ${style.cont}`}>
+                    <div className={`d-flex justify-content-center gy-4 mx-auto row ${style.contGrid}`}>
                         {cocktails.map((drink) => (
                             <div key={drink.idDrink} className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
                                 <CardGridDrinks drink={drink} />
@@ -84,14 +84,14 @@ const Drinks = () => {
 
                 {/* Bottone per caricare più cocktail */}
                 {!loading && cocktails.length > 0 && (
-                    <div className="d-flex justify-content-center mt-4">
-                        <button
+                    <div className="d-flex justify-content-center my-4">
+                        <RedButton
                             onClick={loadMoreCocktails}
-                            className="btn btn-primary"
+                            className=""
                             disabled={letter >= 'z'}
+                            name="More cocktail"
                         >
-                            Carica più cocktail
-                        </button>
+                        </RedButton>
                     </div>
                 )}
             </div>

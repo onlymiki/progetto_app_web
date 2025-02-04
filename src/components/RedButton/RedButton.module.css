@@ -9,6 +9,10 @@
     background-color: #B0240A;
 }
 
+.button:focus{
+    background-color: #B0240A;
+}
+
 .title{
     color: #F8EDE2;
     font-family: Warnes, serif;
