@@ -4,11 +4,10 @@ import CardGridDrinks from "../../components/CardGridDrinks/CardGridDrinks.jsx";
 import bar_scuro from "../../assets/images/bar_scuro.svg"
 import RedButton from "../../components/RedButton/RedButton.jsx"
 import CardTableDrinks from "../../components/CardTableDrinks/CardTableDrinks.jsx";
-import DrinksDetails from "../DrinkDetails/DrinkDetails.jsx"
 import { NavLink } from "react-router-dom";
 
 const Drinks = () => {
-    const [cocktails, setCocktails] = useState([]);  // Cambio drinks con cocktails per coerenza
+    const [cocktails, setCocktails] = useState([]);
     const [loading, setLoading] = useState(false);
     const [letter, setLetter] = useState('a');  // La lettera iniziale per la ricerca
     const [activeButton, setActiveButton] = useState("Grid");
@@ -66,27 +65,22 @@ const Drinks = () => {
                 {activeButton === "Grid" ? (
                     <div className={`d-flex justify-content-center gy-4 mx-auto row ${style.contGrid}`}>
                         {cocktails.map((drink) => (
-                            <div key={drink.idDrink} className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
-                                <NavLink to={`/drink/${drink.idDrink}`}>
-                                    <CardGridDrinks drink={drink}/>
-                                </NavLink>
-                            </div>
+                            <NavLink to={`/drink/${drink.idDrink}`} key={drink.idDrink} className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center" >
+                                <CardGridDrinks drink={drink}/>
+                            </NavLink>
                         ))}
                     </div>
                 ) : (
                     <div className={`d-flex justify-content-center gy-4 mx-auto row ${style.cont}`}>
                         {cocktails.map((drink) => (
-                            <div key={drink.idDrink} className="col-12 col-sm-12 d-flex justify-content-center">
-                                <NavLink to={`/drink/${drink.idDrink}`}>
-                                    <CardTableDrinks drink={drink}/>
-                                </NavLink>
-                            </div>
+                            <NavLink to={`/drink/${drink.idDrink}`} key={drink.idDrink} className="col-12 col-sm-12 d-flex justify-content-center" >
+                                <CardTableDrinks drink={drink}/>
+                            </NavLink>
                         ))}
                     </div>
                 )}
 
-                {/* Messaggio di caricamento */}
-                {loading && <div className="text-center">Caricamento...</div>}
+                {loading && <div className={`mt-2 text-center ${style.text}`}>Caricamento...</div>}
 
                 {/* Bottone per caricare più cocktail */}
                 {!loading && cocktails.length > 0 && (

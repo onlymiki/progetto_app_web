@@ -1,12 +1,14 @@
-import { useParams } from "react-router-dom";
+import {useParams} from "react-router-dom";
 import { useState, useEffect } from "react";
 import style from "./DrinkDetails.module.css"
-import simbolino1 from "../../assets/images/simbolino1.png"
-import simbolino2 from "../../assets/images/simbolino2.png"
+import simbolino1 from "../../assets/images/simbolino1.svg"
+import simbolino2 from "../../assets/images/simbolino2.svg"
+import bar_scuro from "../../assets/images/bar_scuro.svg";
 
 const DrinkDetails = () => {
     let { id } = useParams();
     const [drinkDetails, setDrinkDetails] = useState(null);
+
 
     useEffect(() => {
         const fetchDrinkDetails = async () => {
@@ -22,6 +24,7 @@ const DrinkDetails = () => {
         };
 
         fetchDrinkDetails();
+
     }, [id]);
 
     if (!drinkDetails) {
@@ -47,30 +50,51 @@ const DrinkDetails = () => {
 
     return (
         <div>
+            <img src={bar_scuro} className="img-fluid mb-5"/>
+
             <div className="align-items-center d-flex flex-column justify-content-center w-100">
                 <div className="align-items-center d-flex justify-content-around mb-4 w-100">
-                    <img src={simbolino1} />
+                    <button className="border-0 bg-transparent">
+                        <img src={simbolino2}/>
+                    </button>
                     <h1 className={style.drinkTitle}>{drinkDetails.strDrink}</h1>
-                    <img src={simbolino2} />
+                    <button className="border-0 bg-transparent">
+                        <img src={simbolino1}/>
+                    </button>
                 </div>
                 <img src={drinkDetails.strDrinkThumb} alt={drinkDetails.strDrink}
                      className={`rounded-circle ${style.image}`}/>
             </div>
 
-            <p><strong>Glass:</strong> {drinkDetails.strGlass}</p> {/* Bicchiere */}
+            <div className="mx-5">
+                <h2 className={`mt-5 ${style.subTitle}`}>Ingredients</h2>
+                <div className={`d-flex flex-wrap justify-content-center justify-content-sm-start w-100 ${style.contIngredients}`}>
+                    {ingredientsList.map((ingredient, index) => (
+                        <div key={index}>
+                            <div className="align-items-center d-flex justify-content-center mt-3">
+                                {ingredient.ingredientImage &&
+                                    <img src={ingredient.ingredientImage} alt={ingredient.ingredient}
+                                         className={style.imageIngredients}/>}
+                            </div>
+                            <p className={`mt-2 text-center ${style.ingredients}`}>
+                                {ingredient.measure ? ingredient.measure : ""} {ingredient.ingredient}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
 
-            <p><strong>Instructions:</strong> {drinkDetails.strInstructions}</p>
+            <div className="mx-5">
+                <h2 className={`mt-5 ${style.subTitle}`}>Instruction</h2>
+                <p className={`mt-2 ${style.ingredients}`}>{drinkDetails.strInstructions}</p>
+            </div>
 
-            <h2>Ingredients:</h2>
-            <ul>
-                {ingredientsList.map((ingredient, index) => (
-                    <li key={index}>
-                        {ingredient.measure ? ingredient.measure : ""} {ingredient.ingredient}
-                        {ingredient.ingredientImage && <img src={ingredient.ingredientImage} alt={ingredient.ingredient}
-                                                            style={{width: 50, marginLeft: 10}}/>}
-                    </li>
-                ))}
-            </ul>
+            <div className="mx-5 mb-3">
+                <h2 className={`mt-5 ${style.subTitle}`}>Glass</h2>
+                <p className={`mt-2 ${style.ingredients}`}>{drinkDetails.strGlass}</p>
+            </div>
+
+
         </div>
     );
 };

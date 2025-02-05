@@ -1,3 +1,7 @@
+.contIngredients{
+    gap: 50px;
+}
+
 .drinkTitle{
     color: #F29F58;
     font-family: Warnes, serif;
@@ -6,4 +10,26 @@
 .image{
     width: 300px;
     height: 300px;
+}
+
+.imageIngredients{
+    width: 100px;
+    height: 100px;
+}
+
+.ingredients{
+    color: #F8EDE2;
+    font-family: "Tilt Neon", sans-serif;
+}
+
+.subTitle{
+    color: #F29F58;
+    font-family: Warnes, serif;
+}
+
+@media only screen and (max-width: 576px) {
+    .image{
+        width: 200px;
+        height: 200px;
+    }
 }
