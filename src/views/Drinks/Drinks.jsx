@@ -18,7 +18,7 @@ const Drinks = () => {
         try {
             const response = await fetch(
                 `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${currentLetter}`
-            );
+        );
             const data = await response.json();
             if (data.drinks) {
                 setCocktails((prevCocktails) => [...prevCocktails, ...data.drinks]);
@@ -102,5 +102,3 @@ const Drinks = () => {
 };
 
 export default Drinks;
-
-
