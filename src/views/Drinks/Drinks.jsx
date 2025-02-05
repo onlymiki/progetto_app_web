@@ -5,6 +5,7 @@ import bar_scuro from "../../assets/images/bar_scuro.svg"
 import RedButton from "../../components/RedButton/RedButton.jsx"
 import CardTableDrinks from "../../components/CardTableDrinks/CardTableDrinks.jsx";
 import DrinksDetails from "../DrinkDetails/DrinkDetails.jsx"
+import { NavLink } from "react-router-dom";
 
 const Drinks = () => {
     const [cocktails, setCocktails] = useState([]);  // Cambio drinks con cocktails per coerenza
@@ -66,7 +67,9 @@ const Drinks = () => {
                     <div className={`d-flex justify-content-center gy-4 mx-auto row ${style.contGrid}`}>
                         {cocktails.map((drink) => (
                             <div key={drink.idDrink} className="col-12 col-sm-6 col-lg-4 d-flex justify-content-center">
-                                <CardGridDrinks drink={drink}/>
+                                <NavLink to={`/drink/${drink.idDrink}`}>
+                                    <CardGridDrinks drink={drink}/>
+                                </NavLink>
                             </div>
                         ))}
                     </div>
@@ -74,7 +77,9 @@ const Drinks = () => {
                     <div className={`d-flex justify-content-center gy-4 mx-auto row ${style.cont}`}>
                         {cocktails.map((drink) => (
                             <div key={drink.idDrink} className="col-12 col-sm-12 d-flex justify-content-center">
-                                <CardTableDrinks drink={drink} />
+                                <NavLink to={`/drink/${drink.idDrink}`}>
+                                    <CardTableDrinks drink={drink}/>
+                                </NavLink>
                             </div>
                         ))}
                     </div>
