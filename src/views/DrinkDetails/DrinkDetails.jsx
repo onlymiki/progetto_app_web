@@ -28,7 +28,7 @@ const DrinkDetails = () => {
 
     const findNextDrink = async (currentId, direction) => {
         let nextId = parseInt(currentId) + direction;
-        while (nextId > 0) {
+        while (nextId > 0) { // Assicura che l'ID rimanga valido
             try {
                 const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${nextId}`);
                 const data = await response.json();
