@@ -10,6 +10,7 @@ const DrinkDetails = () => {
     const navigate = useNavigate();
     const [drinkDetails, setDrinkDetails] = useState(null);
 
+    //carico dettagli del drink scelto
     useEffect(() => {
         const fetchDrinkDetails = async () => {
             try {
@@ -26,9 +27,11 @@ const DrinkDetails = () => {
         fetchDrinkDetails();
     }, [id]);
 
+    //trovo il prossimo drink, controlla direzione (destra +1, sinistra -1)
+    //la direzione mi permette di incrementare o decrementare il nuovo drink
     const findNextDrink = async (currentId, direction) => {
         let nextId = parseInt(currentId) + direction;
-        while (nextId > 0) { // Assicura che l'ID rimanga valido
+        while (nextId > 0) {
             try {
                 const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${nextId}`);
                 const data = await response.json();
