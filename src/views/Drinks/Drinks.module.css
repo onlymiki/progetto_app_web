@@ -12,6 +12,40 @@
     gap: 10px;
 }
 
+.hide{
+    display:none;
+}
+
+.input{
+    border: 2px solid #B0240A;
+    font-family: Tilt Neon, sans-serif;
+}
+
+.input:focus{
+    font-family: Tilt Neon, sans-serif;
+}
+
+.searchButton{
+    background-color: transparent;
+    border: 3px solid #B0240A;
+    width: 45px;
+    height: 45px;
+}
+
+.searchButtonRed{
+    background-color: #B0240A;
+    border: 3px solid #B0240A;
+    width: 45px;
+    height: 45px;
+    /*background: url("../../assets/images/leftArrow.svg") no-repeat center;*/
+}
+
+.submit{
+    background-color: transparent;
+    font-family: Warnes, serif;
+    color: #F29F58;
+}
+
 .text{
     color: #F8EDE2;
     font-family: Warnes, serif;
