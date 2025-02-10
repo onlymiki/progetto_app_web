@@ -1,8 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import style from "./DrinkDetails.module.css";
-import simbolino1 from "../../assets/images/simbolino1.svg";
-import simbolino2 from "../../assets/images/simbolino2.svg";
+import undo from "../../assets/images/leftArrow.svg";
 import bar_scuro from "../../assets/images/bar_scuro.svg";
 
 const DrinkDetails = () => {
@@ -27,25 +26,6 @@ const DrinkDetails = () => {
         fetchDrinkDetails();
     }, [id]);
 
-    //trovo il prossimo drink, controlla direzione (destra +1, sinistra -1)
-    //la direzione mi permette di incrementare o decrementare il nuovo drink
-    const findNextDrink = async (currentId, direction) => {
-        let nextId = parseInt(currentId) + direction;
-        while (nextId > 0) {
-            try {
-                const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${nextId}`);
-                const data = await response.json();
-                if (data.drinks) {
-                    navigate(`/drink/${nextId}`);
-                    return;
-                }
-            } catch (error) {
-                console.error("Errore nell'API:", error);
-            }
-            nextId += direction;
-        }
-    };
-
     if (!drinkDetails) {
         return <div>Loading...</div>;
     }
@@ -66,19 +46,21 @@ const DrinkDetails = () => {
 
     const ingredientsList = getIngredients();
 
+    const back = () => {
+        navigate('/drinks');
+    }
+
     return (
         <div>
             <img src={bar_scuro} className="img-fluid mb-5"/>
 
             <div className="align-items-center d-flex flex-column justify-content-center w-100">
                 <div className="align-items-center d-flex justify-content-around mb-4 w-100">
-                    <button className="border-0 bg-transparent" onClick={() => findNextDrink(id, -1)}>
-                        <img src={simbolino2} alt="Previous Drink"/>
+                    <button className="border-0 bg-transparent col" onClick={back}>
+                        <img src={undo} alt="undo"/>
                     </button>
-                    <h1 className={style.drinkTitle}>{drinkDetails.strDrink}</h1>
-                    <button className="border-0 bg-transparent" onClick={() => findNextDrink(id, 1)}>
-                        <img src={simbolino1} alt="Next Drink"/>
-                    </button>
+                    <h1 className={`col text-center ${style.drinkTitle}`}>{drinkDetails.strDrink}</h1>
+                    <div className="col"></div>
                 </div>
                 <img src={drinkDetails.strDrinkThumb} alt={drinkDetails.strDrink} className={`rounded-circle ${style.image}`}/>
             </div>
