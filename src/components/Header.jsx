@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Collapse, Nav, Navbar, NavbarToggler, NavItem } from "reactstrap";
-import { NavLink as RouterLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./Header.module.css";
 import { FaBars, FaTimes } from 'react-icons/fa';  // Importa le icone
 
@@ -12,20 +12,20 @@ const Header = ({ logo, navItems }) => {
     return (
         <Navbar expand="md" className={` ${style.navbar}`}>
             <div className="container d-flex justify-content-between">
-                <RouterLink to="/" className="align-items-center d-flex my-4">
+                <NavLink to="/" className="align-items-center d-flex my-4">
                     <img src={logo} alt="Logo" />
-                </RouterLink>
+                </NavLink>
 
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         {navItems.map(({ url, text, exact }) => (
                             <NavItem key={url} className={`mx-3 ${style.navItem}`}>
-                                <RouterLink
+                                <NavLink
                                     to={url}
                                     exact={exact}
                                     className={({ isActive }) => (isActive ? style.active : style.navItem)} >
                                     {text}
-                                </RouterLink>
+                                </NavLink>
                             </NavItem>
                         ))}
                     </Nav>
