@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import style from "./DrinkDetails.module.css";
 import undo from "../../assets/images/leftArrow.svg";
-import bar_scuro from "../../assets/images/bar_scuro.svg";
+import single_drink from "../../assets/images/single_drink.svg";
 
 const DrinkDetails = () => {
     let { id } = useParams();
@@ -52,7 +52,7 @@ const DrinkDetails = () => {
 
     return (
         <div>
-            <img src={bar_scuro} className="img-fluid mb-5"/>
+            <img src={single_drink} className="img-fluid mb-5"/>
 
             <div className="align-items-center d-flex flex-column justify-content-center w-100">
                 <div className="align-items-center d-flex justify-content-around mb-4 w-100">

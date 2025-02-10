@@ -1,0 +1,30 @@
+.drink{
+    width: 160px;
+    height: 160px;
+}
+
+.text{
+    color: #F29F58;
+    font-family: Warnes, "serif";
+}
+
+.position{
+    width: 150px;
+    height: 150px;
+}
+
+@media only screen and (max-width: 576px) {
+    .position{
+        width: 80px;
+        height: 80px;
+    }
+
+    .drink{
+        width: 100px;
+        height: 100px;
+    }
+
+    .text{
+        font-size: 20px;
+    }
+}
