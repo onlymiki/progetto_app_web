@@ -4,8 +4,9 @@ import CardGridDrinks from "../../components/CardGridDrinks/CardGridDrinks.jsx";
 import bar_scuro from "../../assets/images/bar_scuro.svg";
 import RedButton from "../../components/RedButton/RedButton.jsx";
 import CardTableDrinks from "../../components/CardTableDrinks/CardTableDrinks.jsx";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import search from "../../assets/images/search.svg"
+import leftArrow from "../../assets/images/leftArrow.svg"
 
 const Drinks = () => {
     const [cocktails, setCocktails] = useState([]);
@@ -19,6 +20,7 @@ const Drinks = () => {
     const [hidden, setHidden] = useState(true);
     // Stato per attivare il bottone search
     const [isActive, setActive] = useState(false);
+    const navigate = useNavigate();
 
     // Funzione per caricare i cocktail per la lettera attuale
     const fetchCocktailsByLetter = async (currentLetter) => {
@@ -81,8 +83,12 @@ const Drinks = () => {
     };
 
     const toggleVisibility = () => {
-        setHidden(!hidden);
-        setActive(!isActive);
+        if (isActive) {
+            window.location.reload();
+        } else {
+            setHidden(!hidden);
+            setActive(true);
+        }
     };
 
     return (
@@ -105,7 +111,7 @@ const Drinks = () => {
                 <button className={`align-items-center d-flex justify-content-center ms-3 p-1 rounded-circle ${ isActive ? style.searchButtonRed : style.searchButton}`}
                         onClick={toggleVisibility}
                 >
-                    <img src={search} className="img-fluid"/>
+                    <img src={isActive ? leftArrow : search} className="img-fluid"/>
                 </button>
 
                 <input
