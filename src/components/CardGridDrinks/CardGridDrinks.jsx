@@ -23,7 +23,7 @@ const CardGridDrinks = ({ drink }) => {
                 {displayedIngredients.map((ingredient, index) => (
                     <li key={index}>{ingredient}</li>
                 ))}
-                {showMore && <li>...</li>} {/* Mostra "..." se ci sono più di 3 ingredienti */}
+                {showMore && <li>...</li>}
             </ul>
         </div>
     );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Collapse, Nav, Navbar, NavbarToggler, NavItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import style from "./Header.module.css";
-import { FaBars, FaTimes } from 'react-icons/fa';  // Importa le icone
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 
 const Header = ({ logo, navItems }) => {

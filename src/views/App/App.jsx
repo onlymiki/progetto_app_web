@@ -1,4 +1,3 @@
-//import {useState, useEffect} from 'react';
 import MainTemplate from "../../components/MainTemplate.jsx";
 import Home from "../../views/Home/Home.jsx"
 import Drinks from "../../views/Drinks/Drinks.jsx"

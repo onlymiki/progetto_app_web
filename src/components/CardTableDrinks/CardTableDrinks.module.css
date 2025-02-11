@@ -16,12 +16,12 @@
     color: #F29F58;
     font-family: "Warnes", serif;
     font-size: 26px;
-    display: -webkit-box;        /* Usa il modello di layout a "box" */
-    -webkit-line-clamp: 2;       /* Limita il testo a 2 righe */
-    -webkit-box-orient: vertical; /* Imposta l'orientamento delle righe su verticale */
-    overflow: hidden;            /* Nasconde il testo che esce dalla box */
-    text-overflow: ellipsis;     /* Mostra "..." alla fine se il testo è troncato */
-    line-height: 1.5;            /* Imposta l'altezza della linea per il corretto calcolo delle righe */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
 }
 
 .text{

@@ -22,7 +22,7 @@ const Drinks = () => {
     const [isActive, setActive] = useState(false);
     const navigate = useNavigate();
 
-    // Funzione per caricare i cocktail per la lettera attuale
+
     const fetchCocktailsByLetter = async (currentLetter) => {
         if (isSearching) return; // Evita il caricamento se è in corso una ricerca per nome
 
@@ -41,7 +41,7 @@ const Drinks = () => {
         setLoading(false);
     };
 
-    // Chiamata alla funzione quando la lettera cambia
+
     useEffect(() => {
         fetchCocktailsByLetter(letter);
     }, [letter]);
@@ -54,13 +54,13 @@ const Drinks = () => {
         }
     };
 
-    // Funzione per cercare i drink
+
     const fetchCocktailsByName = async () => {
         if (inputVal.trim() === "") return;
 
         setLoading(true);
-        setIsSearching(true); // Attiviamo la modalità ricerca
-        setCocktails([]); // Svuotiamo l'array per mostrare solo i nuovi risultati
+        setIsSearching(true);
+        setCocktails([]);
 
         try {
             const response = await fetch(
@@ -70,7 +70,7 @@ const Drinks = () => {
             if (data.drinks) {
                 setCocktails(data.drinks);
             } else {
-                setCocktails([]); // Se non trova nulla, assicuriamoci di svuotare la lista
+                setCocktails([]);
             }
         } catch (error) {
             console.error("Errore nell'API:", error);

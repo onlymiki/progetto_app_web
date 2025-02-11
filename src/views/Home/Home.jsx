@@ -2,7 +2,7 @@ import bar from "../../assets/images/bar.png";
 import CardHome from "../../components/CardHome/CardHome.jsx";
 import cheers from "../../assets/images/cheers.png";
 import trophy from "../../assets/images/trophy.png";
-import style from "./Home.module.css";
+
 
 const Home= () => {
     return(
