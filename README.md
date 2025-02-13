@@ -16,12 +16,14 @@ Dopo aver clonato la repository, segui questi passaggi:
    npm start
    ```
 ### Avviare la build
-All’interno della repository è presente una cartella `dist`. Per eseguirla, basta seguire questi passaggi:
+1. Scrivi su terminale
+     ```sh
+   npm run build
 
-1. Installa (se non è già presente) il pacchetto `serve`:
+2. Installa (se non è già presente) il pacchetto `serve`:
    ```sh
    npm install -g serve
-2. Avvia il server nella cartella `dist`:
+3. Avvia il server nella cartella `dist`:
    ```sh
    serve -s dist
 
