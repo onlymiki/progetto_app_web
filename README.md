@@ -15,6 +15,15 @@ Dopo aver clonato la repository, segui questi passaggi:
    ```sh
    npm start
    ```
+### Avviare la build
+All’interno della repository è presente una cartella `dist`. Per eseguirla, basta seguire questi passaggi:
+
+1. Installa (se non è già presente) il pacchetto `serve`:
+   ```sh
+   npm install -g serve
+2. Avvia il server nella cartella `dist`:
+   ```sh
+   serve -s dist
 
 ## Scelta dell'API
 Per il progetto abbiamo utilizzato **TheCocktailDB**, un database di cocktail ben strutturato che supporta ricerche avanzate.

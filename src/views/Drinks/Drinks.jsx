@@ -162,7 +162,7 @@ const Drinks = () => {
                 )}
 
                 {!loading && cocktails.length === 0 && isSearching && (
-                    <div className="text-center mt-3">Nessun cocktail trovato</div>
+                    <div className={`mt-2 text-center ${style.text}`}>Nessun cocktail trovato</div>
                 )}
             </div>
         </>
